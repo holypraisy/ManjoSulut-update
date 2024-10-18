@@ -1,0 +1,114 @@
+import React, { useEffect, useState } from 'react';
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import LayananImage2 from "../assets/LayananImage2.png";
+import { motion } from "framer-motion";
+import Card from '../components/card';
+
+const LayananPage = () => {
+  const [layananData, setLayananData] = useState({ layanan: [], pengaduan: [] }); // State untuk menyimpan data layanan dan pengaduan
+  const [loading, setLoading] = useState(true); // State untuk loading
+
+  // Fetch data dari API saat komponen di-render
+  useEffect(() => {
+    fetch('https://script.google.com/macros/s/AKfycbySK-wxo2NBB_3xF2g8RuFjYd0APgyAbM87kv47WIQee0V1IXNHhUqFf1SD1J0LLAnu/exec')
+      .then((response) => response.json())
+      .then((data) => {
+        setLayananData(data); // Set data ke state
+        setLoading(false); // Set loading false setelah data diambil
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        setLoading(false); // Set loading false jika terjadi error
+      });
+  }, []); // useEffect kosong berarti hanya akan dijalankan sekali saat komponen pertama kali di-render
+
+  // Variants untuk animasi titik
+  const dotVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
+  const dotTransition = {
+    duration: 1,
+    repeat: Infinity,
+    repeatType: "loop",
+    ease: "easeInOut",
+    staggerChildren: 0.3, // Animasi titik satu per satu
+  };
+
+  return (
+    <section id="layanan-informasi" className="relative bg-light overflow-hidden bg-cover bg-center ">
+      <div className="fixed top-0 left-0 w-full z-50 bg-light">
+        <Navbar />
+      </div>
+
+      <div className="pt-20">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-2 md:gap-12">
+          <motion.img
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            src={LayananImage2}
+            alt=""
+            className="w-1/2 md:w-1/3 object-cover drop-shadow-xl mt-6"
+          />
+
+          <motion.h1
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="flex flex-col text-md text-center md:text-xl lg:text-3xl md:text-left text-dark font-bold py-2 drop-shadow-lg"
+          >
+            Layanan & Informasi Eksternal
+            <span> Kanwil DJPB Provinsi Sulawesi Utara </span>
+          </motion.h1>
+        </div>
+
+        {loading ? ( // Cek jika loading true
+          <div className="flex justify-center items-center h-44">
+            <div className="flex text-primary font-bold text-xl md:text-2xl">
+              <span>Loading</span>
+              <motion.div
+                className="flex"
+                initial="hidden"
+                animate="visible"
+                variants={dotVariants}
+                transition={dotTransition}
+              >
+                <motion.span className="mx-1" variants={dotVariants}>.</motion.span>
+                <motion.span className="mx-1" variants={dotVariants}>.</motion.span>
+                <motion.span className="mx-1" variants={dotVariants}>.</motion.span>
+              </motion.div>
+            </div>
+          </div>
+        ) : (
+          <motion.div
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="m-6 md:m-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 "
+          >
+            {layananData.layanan.map((layanan, index) => ( // Pastikan menggunakan data pengaduan
+              <Card
+                key={index}
+                logo={layanan.logo} // URL untuk logo dari data API
+                nama={layanan.nama} // Nama layanan dari data API
+                deskripsi={layanan.deskripsi} // Deskripsi layanan dari data API
+                urlLayanan={layanan.urlLayanan} // URL layanan dari data API
+              />
+            ))}
+          </motion.div>
+        )}
+
+        <Footer />
+      </div>
+    </section>
+  );
+};
+
+export default LayananPage;
+
+
+
