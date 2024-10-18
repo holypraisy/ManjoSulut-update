@@ -4,7 +4,9 @@ import { motion } from 'framer-motion'; // Mengimpor Framer Motion
 
 const Card = ({ logo, nama, deskripsi, urlLayanan }) => {
   return (
-    <motion.div
+    <motion.a
+      href={urlLayanan}
+      target='_blank'
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -38,7 +40,7 @@ const Card = ({ logo, nama, deskripsi, urlLayanan }) => {
           <IoIosArrowRoundForward />
         </motion.a>
       </div>
-    </motion.div>
+    </motion.a>
   );
 };
 

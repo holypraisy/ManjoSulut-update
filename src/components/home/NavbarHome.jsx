@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion } from "framer-motion";
 import logoDjpb from "../../assets/logoDjpbSulut.png";
-import SearchBar from "../searchBar";
+
 
 const NavbarMenu = [
   {
@@ -111,9 +111,6 @@ const Navbar = () => {
             )}
           </button>
           
-          <div>
-            <SearchBar/>
-          </div>
 
         </div>
       </motion.div>
