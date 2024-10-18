@@ -1,6 +1,6 @@
 {
     "id": "manjo-sulut-update",
-    "start_url": "./index.html",
+    "start_url": "/",
     "name": "ManjoSulut.",
     "short_name": "Manjo.",
     "description": "Satu Pintu, Layanan Integrasi Untuk Anda",
