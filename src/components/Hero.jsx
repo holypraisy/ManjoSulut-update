@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { FaChevronCircleDown } from "react-icons/fa";
 import gknSamping from "../assets/gknSamping.jpg";
 import kantorDjpb from "../assets/kantorDjpb.jpg";
-import kantorDjpbZoom from "../assets/kantorDjpbZoom.jpg";
 import { motion, AnimatePresence } from "framer-motion";
 import NavbarHome from "./home/NavbarHome";
 
 
-const images = [gknSamping, kantorDjpb, kantorDjpbZoom];
+const images = [gknSamping, kantorDjpb];
 
 export const FadeUp = (delay) => {
   return {

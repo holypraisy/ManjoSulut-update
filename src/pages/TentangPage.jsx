@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import tentangImage from "../assets/tentangImage.png";
 import harapanImage from "../assets/harapanImage.png";
+import InstallButton from "../components/installButton";
 
 const TentangPage = () => {
   return (
@@ -176,7 +177,8 @@ const TentangPage = () => {
           </div>
         </motion.div>
       </div>
-
+      
+      <InstallButton/>
       <Footer />
     </section>
   );

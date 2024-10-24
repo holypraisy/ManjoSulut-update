@@ -1,9 +1,9 @@
 import React from "react";
-import { FaMapMarkerAlt, FaYoutube, FaInstagram } from "react-icons/fa";
+import { FaMapMarkerAlt, FaYoutube, FaInstagram, FaFacebook } from "react-icons/fa";
 import { TbWorldWww } from "react-icons/tb";
 import { motion } from "framer-motion";
 
-const KppnCard = ({ title, profilVideo, websiteLink, youtubeChannel, instagramAccount, address, addressLink }) => {
+const KppnCard = ({ title, profilVideo, websiteLink, youtubeChannel, instagramAccount,facebookAccount,address, addressLink }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -73,6 +73,17 @@ const KppnCard = ({ title, profilVideo, websiteLink, youtubeChannel, instagramAc
                   whileTap={{ scale: 0.9 }}
                 >
                   <FaInstagram className="text-purple-900" />
+                </motion.a>
+              )}
+              {facebookAccount && (
+                <motion.a
+                  href={facebookAccount}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <FaFacebook className="text-primary" />
                 </motion.a>
               )}
             </div>

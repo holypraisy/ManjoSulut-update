@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import PublikasiCard from "../components/publikasiCard";
 import publikasiImage2 from "../assets/publikasiImage2.png";
+import InstallButton from "../components/installButton";
 
 const PublikasiPage = () => {
   const [publikasiData, setPublikasiData] = useState([]); // Inisialisasi dengan array kosong
@@ -12,7 +13,7 @@ const PublikasiPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbySK-wxo2NBB_3xF2g8RuFjYd0APgyAbM87kv47WIQee0V1IXNHhUqFf1SD1J0LLAnu/exec"); // Ganti dengan URL API Anda
+        const response = await fetch('https://script.google.com/macros/s/AKfycbwiMjQbNy9gaDqVy61-iA9gyCoxzjRrztUsNJRNECztwExPfOIjAjP8z26sfaKAI3izCg/exec'); // Ganti dengan URL API Anda
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -116,6 +117,7 @@ const PublikasiPage = () => {
           </motion.div>
         )}
 
+        <InstallButton/>    
         <Footer />
       </div>
     </section>

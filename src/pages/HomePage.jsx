@@ -5,6 +5,7 @@ import KPPNSULUT from '../components/home/kppn';
 import Publikasi from '../components/home/publikasi';
 import Footer from '../components/Footer';
 import JamLayanan from '../components/home/jamLayanan';
+import InstallButton from '../components/installButton';
 
 
 function HomePage() {
@@ -15,7 +16,9 @@ function HomePage() {
       <JamLayanan />
       <KPPNSULUT />
       <Publikasi />
+      <InstallButton/>
       <Footer />
+
     </main>
   );
 }

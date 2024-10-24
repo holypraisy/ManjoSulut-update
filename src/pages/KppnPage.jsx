@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import kppnLogo from "../assets/kppnLogo.png";
 import { motion } from "framer-motion";
 import KppnCard from "../components/kppnCard";
+import InstallButton from '../components/installButton';
 
 const KppnPage = () => {
   const [kppnData, setKppnData] = useState([]); // Inisialisasi dengan array kosong
@@ -11,7 +12,7 @@ const KppnPage = () => {
 
   // Fetch data dari API saat komponen di-render
   useEffect(() => {
-    fetch('https://script.google.com/macros/s/AKfycbxzU5x_jACbrGRFZ2h2uyBDPLijA5gWmWAnavOVJYUxUJjs65JD_TW_e5QG87momQ0W/exec')
+    fetch('https://script.google.com/macros/s/AKfycbwiMjQbNy9gaDqVy61-iA9gyCoxzjRrztUsNJRNECztwExPfOIjAjP8z26sfaKAI3izCg/exec')
       .then((response) => response.json())
       .then((data) => {
         setKppnData(data.kppn || []); // Pastikan jika data.kppn undefined, tetap set sebagai array kosong
@@ -87,6 +88,7 @@ const KppnPage = () => {
                   websiteLink={kppn.websiteLink} // URL website
                   youtubeChannel={kppn.youtubeChannel} // URL channel YouTube
                   instagramAccount={kppn.instagramAccount} // URL akun Instagram
+                  facebookAccount={kppn.facebookAccount}
                   address={kppn.address} // Alamat KPPN
                   addressLink={kppn.addressLink} // URL Google Maps alamat
                 />
@@ -96,7 +98,8 @@ const KppnPage = () => {
             )}
           </motion.div>
         )}
-
+        
+        <InstallButton/>
         <Footer />
       </div>
     </section>

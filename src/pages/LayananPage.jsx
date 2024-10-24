@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import LayananImage2 from "../assets/LayananImage2.png";
 import { motion } from "framer-motion";
 import Card from '../components/card';
+import InstallButton from '../components/installButton';
 
 const LayananPage = () => {
   const [layananData, setLayananData] = useState({ layanan: [], pengaduan: [] }); // State untuk menyimpan data layanan dan pengaduan
@@ -11,7 +12,7 @@ const LayananPage = () => {
 
   // Fetch data dari API saat komponen di-render
   useEffect(() => {
-    fetch('https://script.google.com/macros/s/AKfycbySK-wxo2NBB_3xF2g8RuFjYd0APgyAbM87kv47WIQee0V1IXNHhUqFf1SD1J0LLAnu/exec')
+    fetch('https://script.google.com/macros/s/AKfycbwiMjQbNy9gaDqVy61-iA9gyCoxzjRrztUsNJRNECztwExPfOIjAjP8z26sfaKAI3izCg/exec')
       .then((response) => response.json())
       .then((data) => {
         setLayananData(data); // Set data ke state
@@ -101,7 +102,8 @@ const LayananPage = () => {
             ))}
           </motion.div>
         )}
-
+        
+        <InstallButton/>
         <Footer />
       </div>
     </section>
