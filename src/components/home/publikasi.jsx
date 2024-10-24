@@ -31,8 +31,7 @@ const Publikasi = () => {
             </div>
           </div>
         </motion.div>
-        
-        {/* Banner Image */}
+      
         <div className="flex justify-center items-center">
           <motion.img
             initial={{ opacity: 0, x: 50 }}

@@ -26,13 +26,11 @@ const Card = ({ logo, nama, deskripsi, urlLayanan }) => {
         />
       </div>
 
-
       <div className="text-left flex-1 p-2"> 
         <div className="font-bold text-dark text-sm sm:text-base md:text-lg lg:text-xl mb-2">{nama}</div> 
         <p className="text-dark2 text-xs md:text-sm">{deskripsi}</p> 
       </div>
-
-
+      
       <div className="hidden sm:flex items-center justify-end">
         <motion.div
           whileHover={{ x: 10 }}

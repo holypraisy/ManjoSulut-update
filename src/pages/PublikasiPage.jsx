@@ -7,42 +7,37 @@ import publikasiImage2 from "../assets/publikasiImage2.png";
 import InstallButton from "../components/installButton";
 
 const PublikasiPage = () => {
-  const [publikasiData, setPublikasiData] = useState([]); // Inisialisasi dengan array kosong
-  const [loading, setLoading] = useState(true); // State untuk loading
-
+  const [publikasiData, setPublikasiData] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbwiMjQbNy9gaDqVy61-iA9gyCoxzjRrztUsNJRNECztwExPfOIjAjP8z26sfaKAI3izCg/exec'); // Ganti dengan URL API Anda
+        const response = await fetch('https://script.google.com/macros/s/AKfycbwiMjQbNy9gaDqVy61-iA9gyCoxzjRrztUsNJRNECztwExPfOIjAjP8z26sfaKAI3izCg/exec');
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-
-        // Pastikan data.publikasi adalah array
-        setPublikasiData(Array.isArray(data.publikasi) ? data.publikasi : []); // Set publikasiData dengan array
+        setPublikasiData(Array.isArray(data.publikasi) ? data.publikasi : []);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
-        setLoading(false); // Set loading false setelah data diambil atau jika terjadi error
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
 
-  // Variants untuk animasi titik
   const dotVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
   };
-
   const dotTransition = {
     duration: 1,
     repeat: Infinity,
     repeatType: "loop",
     ease: "easeInOut",
-    staggerChildren: 0.3, // Animasi titik satu per satu
+    staggerChildren: 0.3,
   };
 
   return (
@@ -61,7 +56,6 @@ const PublikasiPage = () => {
             alt="Publikasi Image"
             className="w-3/4 md:w-2/5 object-cover drop-shadow-2xl"
           />
-
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -77,7 +71,7 @@ const PublikasiPage = () => {
           </motion.div>
         </div>
 
-        {loading ? ( // Cek jika loading true
+        {loading ? ( 
           <div className="flex justify-center items-center h-44">
             <div className="flex text-primary font-bold text-xl md:text-2xl">
               <span>Loading</span>
@@ -112,11 +106,10 @@ const PublikasiPage = () => {
                 />
               ))
             ) : (
-              <p className="text-center">No Data Available</p> // Pesan jika tidak ada data
+              <p className="text-center">No Data Available</p>
             )}
           </motion.div>
         )}
-
         <InstallButton/>    
         <Footer />
       </div>

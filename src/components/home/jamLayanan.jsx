@@ -1,7 +1,6 @@
 import React from "react";
 import { LuClock3 } from "react-icons/lu";
 import { LuClock5 } from "react-icons/lu";
-import { FadeUp } from '../Hero';
 import { motion } from "framer-motion";
 
 const JamLayanan = () => {
@@ -18,7 +17,6 @@ const JamLayanan = () => {
               Jam Layanan
             </motion.h1>
 
-              
             <div className="grid grid-cols-1 md:grid-cols-2 py-6 justify-center items-center gap-8 w-full">
               <motion.a
               initial={{ opacity: 0, x: -50 }}
@@ -35,10 +33,8 @@ const JamLayanan = () => {
               <div>
                 <h1 className="text-xl lg:text-4xl font-bold ">08.00 s.d 15.00 WITA</h1>
               </div>
-
             </motion.a>
 
-              
               <motion.a
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -51,16 +47,12 @@ const JamLayanan = () => {
                   <LuClock5 className="text-xl lg:text-2xl text-primary group-hover:translate-x-2 duration-300" />
                   <p className="text-base md:text-xl">Tanpa Sistem Antrean</p>
                 </div>
-
                 <div>
                   <h1 className="text-xl lg:text-4xl font-bold "> 08.00 s.d 17.00 WITA</h1>
               </div>
-
-
               </motion.a>
             </div>
           </div>
-
     </section>
   );
 };

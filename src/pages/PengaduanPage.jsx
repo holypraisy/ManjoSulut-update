@@ -7,24 +7,20 @@ import Card from '../components/card';
 import InstallButton from '../components/installButton';
 
 const PengaduanPage = () => {
-  const [layananData, setLayananData] = useState({ layanan: [], pengaduan: [] }); // State untuk menyimpan data layanan dan pengaduan
-  const [loading, setLoading] = useState(true); // State untuk loading
-
-  // Fetch data dari API saat komponen di-render
+  const [layananData, setLayananData] = useState({ layanan: [], pengaduan: [] });
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch('https://script.google.com/macros/s/AKfycbwiMjQbNy9gaDqVy61-iA9gyCoxzjRrztUsNJRNECztwExPfOIjAjP8z26sfaKAI3izCg/exec')
       .then((response) => response.json())
       .then((data) => {
-        setLayananData(data); // Set data ke state
-        setLoading(false); // Set loading false setelah data diambil
+        setLayananData(data); 
+        setLoading(false);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
-        setLoading(false); // Set loading false jika terjadi error
+        setLoading(false);
       });
-  }, []); // useEffect kosong berarti hanya akan dijalankan sekali saat komponen pertama kali di-render
-
-  // Variants untuk animasi titik
+  }, []);
   const dotVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -35,7 +31,7 @@ const PengaduanPage = () => {
     repeat: Infinity,
     repeatType: "loop",
     ease: "easeInOut",
-    staggerChildren: 0.3, // Animasi titik satu per satu
+    staggerChildren: 0.3,
   };
 
   return (
@@ -68,7 +64,7 @@ const PengaduanPage = () => {
           </motion.h1>
         </div>
 
-        {loading ? ( // Cek jika loading true
+        {loading ? (
           <div className="flex justify-center items-center h-44">
             <div className="flex text-primary font-bold text-xl md:text-2xl">
               <span>Loading</span>
@@ -91,18 +87,17 @@ const PengaduanPage = () => {
             transition={{ duration: 0.7 }}
             className="m-6 md:m-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 "
           >
-            {layananData.pengaduan.map((pengaduan, index) => ( // Pastikan menggunakan data pengaduan
+            {layananData.pengaduan.map((pengaduan, index) => (
               <Card
                 key={index}
-                logo={pengaduan.logo} // URL untuk logo dari data API
-                nama={pengaduan.nama} // Nama layanan dari data API
-                deskripsi={pengaduan.deskripsi} // Deskripsi layanan dari data API
-                urlLayanan={pengaduan.urlLayanan} // URL layanan dari data API
+                logo={pengaduan.logo} 
+                nama={pengaduan.nama} 
+                deskripsi={pengaduan.deskripsi}
+                urlLayanan={pengaduan.urlLayanan}
               />
             ))}
           </motion.div>
         )}
-
         <InstallButton/>
         <Footer />
       </div>

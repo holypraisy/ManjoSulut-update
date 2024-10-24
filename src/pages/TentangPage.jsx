@@ -13,7 +13,6 @@ const TentangPage = () => {
       </div>
 
       <div className="pt-20">
-        {/* Section 1: Tentang Manjo Sulut */}
         <div className="flex flex-col sm:flex-row justify-evenly items-center gap-2 md:gap-12">
           <motion.img
             initial={{ opacity: 0, x: -50 }}
@@ -47,7 +46,6 @@ const TentangPage = () => {
           </motion.div>
         </div>
 
-        {/* Section 2: Deskripsi */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -76,7 +74,6 @@ const TentangPage = () => {
             </motion.p>
           </div>
 
-          {/* Section 3: Cards */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -109,7 +106,6 @@ const TentangPage = () => {
           </motion.div>
         </motion.div>
 
-        {/* Section 4: Nilai-Nilai PSW */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -147,7 +143,6 @@ const TentangPage = () => {
           </div>
         </motion.div>
 
-        {/* Section 5: Harapan Kami */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -177,7 +172,6 @@ const TentangPage = () => {
           </div>
         </motion.div>
       </div>
-      
       <InstallButton/>
       <Footer />
     </section>

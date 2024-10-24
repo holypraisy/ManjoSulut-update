@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import logoDjpb from "../assets/logoDjpbSulut.png";
 import { FiMenu, FiX } from "react-icons/fi";
-import SearchBar from "./searchBar";
 
 const NavbarMenu = [
   {
@@ -89,12 +88,7 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-            {/* <div>
-              <SearchBar/>
-            </div> */}
         </div>
-
-
         <div className="lg:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? (
@@ -105,8 +99,6 @@ const Navbar = () => {
           </button>
         </div>
       </motion.div>
-
-
       {isMenuOpen && (
         <motion.div
           initial={{ opacity: 0, y: -50 }}

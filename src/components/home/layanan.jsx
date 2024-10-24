@@ -56,7 +56,6 @@ const Layanan = () => {
               <FaArrowCircleRight className="text-xl lg:text-2xl text-primary group-hover:translate-x-2 duration-300" />
             </motion.a>
 
-              
               <motion.a
                 variants={FadeUp(0.4)}
                 initial="initial"

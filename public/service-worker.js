@@ -10,8 +10,6 @@ const urlsToCache = [
   "/icons/icon-192x192.png",
   "/icons/icon-512x512.png"
 ];
-
-// Install Service Worker
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -21,8 +19,6 @@ self.addEventListener("install", (event) => {
       })
   );
 });
-
-// Fetch assets from cache
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request)
@@ -34,8 +30,6 @@ self.addEventListener("fetch", (event) => {
       })
   );
 });
-
-// Update Service Worker
 self.addEventListener("activate", (event) => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(

@@ -6,12 +6,9 @@ import logoDjpbSulut from "../assets/logoDjpbSulut.png";
 
 const Footer = () => {
   const [copied, setCopied] = useState(null);
-
   const handleCopy = (number) => {
     navigator.clipboard.writeText(number);
     setCopied(number);
-
-    // Hilangkan pesan setelah 2 detik
     setTimeout(() => {
       setCopied(null);
     }, 2000);
@@ -25,7 +22,6 @@ const Footer = () => {
         className="container p-6"
       >
         <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* First section */}
           <div className="flex flex-col justify-center items-center w-full">
             <img 
               className="w-2/6 md:w-2/5"
@@ -37,7 +33,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Second section */}
           <div className="flex flex-col gap-8 mt-6">
             <div className="space-y-1">
               <h1 className="text-xl md:text-2xl font-bold">Kontak Kami</h1>
@@ -46,6 +41,7 @@ const Footer = () => {
                   <h1 className="flex flex-row items-center gap-2"><FaMapMarkerAlt />Alamat</h1>
                   <a 
                     href="https://maps.app.goo.gl/SznLpkyFq5WCSyoB9"
+                    alt = "Gedung Keuangan Negara Manado Lt. 3 Jl. Bethesda No.8 Manado 95114"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm md:text-base"
@@ -69,27 +65,29 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Third section */}
             <div className="space-y-4 max-w-[300px]">
               <h1 className="text-xl md:text-2xl font-bold">Ikuti Kami</h1>
               <div className="flex justify-start space-x-4 md:space-x-6">
-                <a  
+                <a
                   target="_blank"
                   href="https://www.instagram.com/djpbsulut?igsh=a2VrcGRlbHI4OTly"
+                  aria-label="Akun Instagram Kanwil DJPB Sulut"
                   rel="noopener noreferrer"
                 >
                   <FaInstagram className="cursor-pointer text-3xl hover:text-primary hover:scale-105 duration-200" />
                 </a>
-                <a 
+                <a
                   target="_blank"
                   href="https://djpb.kemenkeu.go.id/kanwil/sulut/id/"
+                  aria-label="Website Kanwil DJPB Sulut"
                   rel="noopener noreferrer"
                 >
                   <TbWorldWww className="cursor-pointer text-3xl hover:text-primary hover:scale-105 duration-200" />
                 </a>
-                <a 
+                <a
                   target="_blank"
                   href="https://youtube.com/@kanwildjpbsulawesiutara?si=8uFaAt4awyf5eLJq"
+                  aria-label="Akun Youtube Kanwil DJPB Sulut"
                   rel="noopener noreferrer"
                 >
                   <FaYoutube className="cursor-pointer text-3xl hover:text-primary hover:scale-105 duration-200" />

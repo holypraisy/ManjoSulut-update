@@ -7,22 +7,20 @@ import KppnCard from "../components/kppnCard";
 import InstallButton from '../components/installButton';
 
 const KppnPage = () => {
-  const [kppnData, setKppnData] = useState([]); // Inisialisasi dengan array kosong
-  const [loading, setLoading] = useState(true); // State untuk loading
-
-  // Fetch data dari API saat komponen di-render
+  const [kppnData, setKppnData] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch('https://script.google.com/macros/s/AKfycbwiMjQbNy9gaDqVy61-iA9gyCoxzjRrztUsNJRNECztwExPfOIjAjP8z26sfaKAI3izCg/exec')
       .then((response) => response.json())
       .then((data) => {
-        setKppnData(data.kppn || []); // Pastikan jika data.kppn undefined, tetap set sebagai array kosong
-        setLoading(false); // Set loading false setelah data diambil
+        setKppnData(data.kppn || []);
+        setLoading(false);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
-        setLoading(false); // Set loading false jika terjadi error
+        setLoading(false);
       });
-  }, []); // useEffect kosong berarti hanya akan dijalankan sekali saat komponen pertama kali di-render
+  }, []);
 
   return (
     <section id="kppn" className="relative bg-light overflow-hidden bg-cover bg-center">
@@ -68,7 +66,7 @@ const KppnPage = () => {
           <h1 className="pb-2">KPPN di Sulawesi Utara</h1>
         </motion.div>
 
-        {loading ? ( // Cek jika loading true
+        {loading ? ( 
           <div className="flex justify-center items-center h-44">
             <span className="text-primary font-bold text-xl md:text-2xl">Loading...</span>
           </div>
@@ -84,13 +82,13 @@ const KppnPage = () => {
                 <KppnCard
                   key={index}
                   title={kppn.title}
-                  profilVideo={kppn.profilVideo} // URL video profil
-                  websiteLink={kppn.websiteLink} // URL website
-                  youtubeChannel={kppn.youtubeChannel} // URL channel YouTube
-                  instagramAccount={kppn.instagramAccount} // URL akun Instagram
+                  profilVideo={kppn.profilVideo} 
+                  websiteLink={kppn.websiteLink} 
+                  youtubeChannel={kppn.youtubeChannel} 
+                  instagramAccount={kppn.instagramAccount} 
                   facebookAccount={kppn.facebookAccount}
-                  address={kppn.address} // Alamat KPPN
-                  addressLink={kppn.addressLink} // URL Google Maps alamat
+                  address={kppn.address} 
+                  addressLink={kppn.addressLink}
                 />
               ))
             ) : (
@@ -98,7 +96,6 @@ const KppnPage = () => {
             )}
           </motion.div>
         )}
-        
         <InstallButton/>
         <Footer />
       </div>

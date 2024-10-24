@@ -64,8 +64,8 @@ const KPPNSULUT = () => {
         <p className="text-base lg:text-2xl text-dark py-2 text-center ">
           Kantor Pelayanan Perbendaharaan Negara di Sulawesi Utara
         </p>
-        {/* Grid untuk menampung empat gambar secara berdampingan */}
-        <div className="cursor-pointer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"> {/* 4 kolom untuk tampilan besar */}
+
+        <div className="cursor-pointer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"> 
           {ServicesData.map((service) => (
             <motion.a
               key={service.id}
@@ -79,8 +79,7 @@ const KPPNSULUT = () => {
               <img
                 src={service.image}
                 alt={service.title}
-                className="w-full h-48 mb-4 object-cover rounded-lg" // Mengatur ukuran gambar
-              />
+                className="w-full h-48 mb-4 object-cover rounded-lg" />
               <h1 className="text-sm font-semibold text-center px-3">
                 {service.title}
               </h1>

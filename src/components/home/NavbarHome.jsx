@@ -3,7 +3,6 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { motion } from "framer-motion";
 import logoDjpb from "../../assets/logoDjpbSulut.png";
 
-
 const NavbarMenu = [
   {
     id: 1,
@@ -35,7 +34,6 @@ const Navbar = () => {
         animate={{ opacity: 1, y: 0 }}
         className="px-2 md:px-12 flex justify-between items-center "
       >
-
         <div className="flex flex-row justify-start items-center gap-2 md:gap-4">
           <img
             src={logoDjpb}
@@ -47,8 +45,7 @@ const Navbar = () => {
             <h1 className="font-bold text-xl md:text-2xl lg:text-lg text-light">Sulut</h1>
           </div>
         </div>
-
-
+        
         <div className="hidden lg:flex items-center">
           <ul className="flex items-center gap-8">
             {NavbarMenu.map((menu) => (
@@ -93,29 +90,24 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-
-
-          {/* <div className="ml-6">
-            <SearchBar />
-          </div> */}
         </div>
 
-
         <div className="lg:hidden flex flex-row items-center gap-4">
+        <button  
+          onClick={() => setIsMenuOpen(!isMenuOpen)} 
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        >
+          {isMenuOpen ? (
+            <FiX className="text-3xl text-light" aria-hidden="true" />
+          ) : (
+            <FiMenu className="text-3xl text-light" aria-hidden="true" /> 
+          )}
+        </button>
 
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? (
-              <FiX className="text-3xl text-light" /> // Close icon when menu is open
-            ) : (
-              <FiMenu className="text-3xl  text-light" /> // Hamburger menu icon when closed
-            )}
-          </button>
           
 
         </div>
       </motion.div>
-
-      {/* Mobile menu for smaller screens */}
       {isMenuOpen && (
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -159,7 +151,6 @@ const Navbar = () => {
                 )}
               </li>
             ))}
-            
           </ul>
         </motion.div>
       )}
