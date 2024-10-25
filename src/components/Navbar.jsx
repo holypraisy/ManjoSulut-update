@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import logoDjpb from "../assets/logoDjpbSulut.png";
+import logoDjpb from "../assets/logoDjpbSulut.webp";
 import { FiMenu, FiX } from "react-icons/fi";
 
 const NavbarMenu = [

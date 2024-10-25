@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import kppnLogo from "../assets/kppnLogo.png";
+import kppnLogo from "../assets/kppnLogo.webp";
 import { motion } from "framer-motion";
 import KppnCard from "../components/kppnCard";
 import InstallButton from '../components/installButton';

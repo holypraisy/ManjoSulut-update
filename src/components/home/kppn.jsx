@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import kppnManado from "../../assets/kppnManado.jpeg";
-import kppnBitung from "../../assets/kppnBitung.jpg";
-import kppnKotamobagu from "../../assets/kppnKotamobagu.jpg";
-import kppnTahuna from "../../assets/kppnTahuna.jpg";
+import kppnManado from "../../assets/kppnManado.webp";
+import kppnBitung from "../../assets/kppnBitung.webp";
+import kppnKotamobagu from "../../assets/kppnKotamobagu.webp";
+import kppnTahuna from "../../assets/kppnTahuna.webp";
 
 const ServicesData = [
   {

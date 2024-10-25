@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaInstagram, FaYoutube, FaMapMarkerAlt, FaPhoneAlt, FaFax } from "react-icons/fa";
 import { TbWorldWww } from "react-icons/tb";
 import { motion } from "framer-motion";
-import logoDjpbSulut from "../assets/logoDjpbSulut.png";
+import logoDjpbSulut from "../assets/logoDjpbSulut.webp";
 
 const Footer = () => {
   const [copied, setCopied] = useState(null);

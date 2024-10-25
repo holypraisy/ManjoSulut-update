@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import LayananImage2 from "../assets/LayananImage2.png";
+import LayananImage2 from "../assets/LayananImage2.webp";
 import { motion } from "framer-motion";
 import Card from '../components/card';
 import InstallButton from '../components/installButton';

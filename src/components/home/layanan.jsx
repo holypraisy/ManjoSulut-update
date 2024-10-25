@@ -2,7 +2,7 @@ import React from "react";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { FadeUp } from '../Hero';
 import { motion } from "framer-motion";
-import layananImage from '../../assets/layananImage.png';
+import layananImage from '../../assets/layananImage.webp';
 
 const Layanan = () => {
   return (

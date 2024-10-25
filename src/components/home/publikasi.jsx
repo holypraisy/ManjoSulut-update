@@ -1,5 +1,5 @@
 import React from "react";
-import publikasiImage from "../../assets/publikasiImage.png";
+import publikasiImage from "../../assets/publikasiImage.webp";
 import { motion } from "framer-motion";
 import { FaArrowCircleRight } from "react-icons/fa";
 

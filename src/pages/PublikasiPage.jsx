@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import PublikasiCard from "../components/publikasiCard";
-import publikasiImage2 from "../assets/publikasiImage2.png";
+import publikasiImage2 from "../assets/publikasiImage2.webp";
 import InstallButton from "../components/installButton";
 
 const PublikasiPage = () => {
