@@ -20,7 +20,7 @@ export const FadeUp = (delay) => {
       transition: {
         type: "spring",
         stiffness: 100,
-        duration: 0.6, // Durasi animasi dipersingkat
+        duration: 0.6,
         delay: delay,
         ease: "easeInOut",
       },
@@ -28,14 +28,13 @@ export const FadeUp = (delay) => {
   };
 };
 
-
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 5000); // Perpanjang interval untuk meminimalkan perubahan
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -49,7 +48,8 @@ const Hero = () => {
   return (
     <section className="relative bg-light overflow-hidden max-h-[500px] lg:max-h-[600px] h-screen">
       <Helmet>
-        <link rel="preload" as="image" href={gknSampingWebP} /> {/* Preload gambar */}
+        <meta name="description" content="Manjo Sulut - Aplikasi layanan terpadu untuk akses layanan di DJPb Sulut." />
+        <link rel="preload" as="image" href={gknSampingWebP} />
       </Helmet>
 
       <div className="absolute top-0 left-0 right-0 z-20">
@@ -79,7 +79,7 @@ const Hero = () => {
           <motion.div className="flex justify-center">
             <motion.div
               className="mt-12 cursor-pointer"
-              animate={{ y: [0, 10, 0] }} // Animasi button down
+              animate={{ y: [0, 10, 0] }}
               transition={{
                 repeat: Infinity,
                 duration: 1.5,
@@ -93,19 +93,17 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Background gambar dengan srcSet untuk mobile optimization */}
       <AnimatePresence>
         <motion.img
           key={currentImage}
           src={images[currentImage]}
           alt="Background Hero"
-          srcSet={`${gknSampingWebP} 768w, ${gknSampingWebP} 1200w`}
-          sizes="(max-width: 768px) 100vw, (min-width: 769px) 50vw"
+          loading="lazy" // Lazy loading
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 2 }}
+          transition={{ duration: 1 }} // Shorter transition duration
         />
       </AnimatePresence>
 
